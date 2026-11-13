@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "recorded_before_first_model_fit": "2026-11-13",
+  "target": "Arithmetic mean of accepted instantaneous PEI on-island load readings in each UTC hour, MW; not metered hourly energy",
+  "timezone": "America/Halifax; historical wall-clock assumption, checked against current feed Unix timestamp",
+  "issue_time_local": "18:00 on the preceding calendar date",
+  "load_availability_rule": "Hourly interval must end at or before issue minus one hour; publication latency is an assumption, not a recorded vintage",
+  "weather": "Open-Meteo GFS seamless temperature at fixed 48-hour lead; deliberately older than issue time, not observed future temperature",
+  "development_train": ["2021-01-01", "2024-01-01"],
+  "model_selection_validation": ["2024-01-01", "2024-07-01"],
+  "initial_interval_calibration": ["2024-07-01", "2025-01-01"],
+  "locked_primary_test": ["2025-01-01", "2026-01-01"],
+  "extension_test": "2026-01-01 through last complete source day",
+  "refit_schedule": "Quarterly; trailing three years before a separate trailing 180-day interval calibration window",
+  "candidates": ["ridge_weather", "boost_weather_15", "boost_weather_31", "boost_load_only"],
+  "candidate_selection": "Lowest hourly MAE on January-June 2024 only; no hyperparameter changes based on test results",
+  "baselines": ["weekly_naive", "two_day_naive", "mean_2_and_7_day"],
+  "primary_metric": "MAE MW on identical eligible hours for every method",
+  "interval": "90% nominal symmetric split-conformal residual interval; empirical coverage, no exchangeability guarantee for time series",
+  "peak_definition": "Training-target 95th percentile in each quarterly fold; statistical high-load threshold, not grid capacity",
+  "data_exclusions": "Invalid/nonpositive readings, ambiguous/nonexistent DST timestamps, flat source runs spanning at least four hours, hours with fewer than three readings or less than 30 minutes span; no target interpolation",
+  "limitations": "No recorded electricity publication vintages; weather fixed-lead archive is not exact issue-run reconstruction; excluded poor-data periods; no utility endorsement or proven cost savings"
+}
