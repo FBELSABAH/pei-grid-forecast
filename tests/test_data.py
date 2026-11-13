@@ -28,3 +28,8 @@ def test_dst_ambiguous_removed():
 
 def test_schema_failure():
     with pytest.raises(ValueError):clean_load(pd.DataFrame({"x":[1]}))
+
+def test_partial_trailing_hour_is_not_final_observation():
+    h,_,_=clean_load(source())
+    assert pd.notna(h.iloc[0].load_mw)
+    assert pd.isna(h.iloc[-1].load_mw)

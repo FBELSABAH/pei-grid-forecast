@@ -1,0 +1,90 @@
+{
+  "source_rows": 508848,
+  "rejected_rows": 1556,
+  "reasons": {
+    "flat_source_run_at_least_4h": 1496,
+    "invalid_or_ambiguous_local_timestamp": 59,
+    "invalid_or_nonpositive_load": 1
+  },
+  "first_source_wall_time": "2012-11-13 12:29:02",
+  "last_source_wall_time": "2026-11-13 07:44:00",
+  "hourly_bins": 122708,
+  "accepted_hours": 118606,
+  "missing_or_rejected_hours": 4102,
+  "by_year": {
+    "2012": {
+      "hours": 1164,
+      "accepted_hours": 1152
+    },
+    "2013": {
+      "hours": 8760,
+      "accepted_hours": 8353
+    },
+    "2014": {
+      "hours": 8760,
+      "accepted_hours": 8614
+    },
+    "2015": {
+      "hours": 8760,
+      "accepted_hours": 8696
+    },
+    "2016": {
+      "hours": 8784,
+      "accepted_hours": 8392
+    },
+    "2017": {
+      "hours": 8760,
+      "accepted_hours": 8631
+    },
+    "2018": {
+      "hours": 8760,
+      "accepted_hours": 8724
+    },
+    "2019": {
+      "hours": 8760,
+      "accepted_hours": 8221
+    },
+    "2020": {
+      "hours": 8784,
+      "accepted_hours": 8715
+    },
+    "2021": {
+      "hours": 8760,
+      "accepted_hours": 8538
+    },
+    "2022": {
+      "hours": 8760,
+      "accepted_hours": 8082
+    },
+    "2023": {
+      "hours": 8760,
+      "accepted_hours": 8485
+    },
+    "2024": {
+      "hours": 8784,
+      "accepted_hours": 8154
+    },
+    "2025": {
+      "hours": 8760,
+      "accepted_hours": 8683
+    },
+    "2026": {
+      "hours": 7592,
+      "accepted_hours": 7166
+    }
+  },
+  "timezone_check": {
+    "unix_timestamp_as_halifax": "2026-11-13 07:44:00",
+    "feed_wall_time": "2026-11-13 07:44:00",
+    "matches": true,
+    "historical_timezone_confirmed": false
+  },
+  "weather": {
+    "hours": 51480,
+    "missing": 2508,
+    "first_nonmissing_utc": "2021-03-25 00:00:00+00:00",
+    "last_nonmissing_utc": "2026-11-15 23:00:00+00:00",
+    "point": "46.2382 N, 63.1311 W (Charlottetown), representative proxy, not island average",
+    "nominal_lead_hours": 48
+  }
+}

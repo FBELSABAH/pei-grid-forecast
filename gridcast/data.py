@@ -84,7 +84,10 @@ def clean_load(frame: pd.DataFrame) -> tuple[pd.DataFrame, dict, pd.DataFrame]:
     hourly = usable.resample("h").agg(load_mw=("load_mw", "mean"), samples=("load_mw", "count"),
                                     first_sample=("sample_timestamp", "min"), last_sample=("sample_timestamp", "max"))
     hourly["span_minutes"] = (hourly.last_sample - hourly.first_sample).dt.total_seconds() / 60
-    hourly["accepted"] = (hourly.samples >= 3) & (hourly.span_minutes >= 30)
+    # A partial trailing hour must not be presented as a completed observation.
+    last_source = localized.dropna().max()
+    completed = hourly.index + pd.Timedelta(hours=1) <= last_source
+    hourly["accepted"] = (hourly.samples >= 3) & (hourly.span_minutes >= 30) & completed
     hourly.loc[~hourly.accepted, "load_mw"] = np.nan
     rejected = source.loc[reasons.ne("")].copy()
     rejected["reason"] = reasons[reasons.ne("")]

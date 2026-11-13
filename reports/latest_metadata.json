@@ -1,0 +1,18 @@
+{
+  "origin_utc": "2026-11-12 22:00:00+00:00",
+  "target_day": "2026-11-13",
+  "status": "Snapshot reconstruction from public archive; not independently logged at historical issue time",
+  "last_source_local": "2026-11-13 06:00:00-04:00",
+  "model": {
+    "first_issue_utc": "2026-09-30 21:00:00+00:00",
+    "label_cutoff_utc": "2026-09-30 20:00:00+00:00",
+    "train_first_target_utc": "2023-04-03 20:00:00+00:00",
+    "train_last_target_utc": "2026-04-03 19:00:00+00:00",
+    "calibration_first_target_utc": "2026-04-03 20:00:00+00:00",
+    "calibration_last_target_utc": "2026-09-30 19:00:00+00:00",
+    "train_n": 23353,
+    "calibration_n": 4022,
+    "interval_radius_mw": 21.312783814884597,
+    "peak_threshold_mw": 300.70249999999993
+  }
+}

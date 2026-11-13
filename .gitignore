@@ -10,3 +10,7 @@ models/*
 dist/
 *.tar.gz
 *.log
+reports/rejected_readings.csv
+reports/*_preview.png
+reports/audit_console.json
+reports/repeatability_before.json

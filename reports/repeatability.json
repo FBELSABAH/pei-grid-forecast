@@ -1,0 +1,12 @@
+{
+  "source_snapshots_unchanged": true,
+  "feature_hash_identical": true,
+  "prediction_hash_identical": true,
+  "first_run_seconds": 11.322,
+  "repeat_run_seconds": 11.565,
+  "prediction_sha256": "0d9fde57a284ef910f50456d2e95cce79f7a5eb22c7b64cad9aec7d40162035c",
+  "method": "Two full cached rebuilds. Runtime metadata changes; feature and prediction bytes must match.",
+  "timing_scope": "Core pipeline before presentation packaging; not browser rendering or hosted deployment.",
+  "final_prediction_hash_matches_prior_runs": true,
+  "final_core_pipeline_seconds": 11.312
+}
