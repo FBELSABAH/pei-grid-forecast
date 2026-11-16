@@ -1,12 +1,23 @@
 {
-  "source_snapshots_unchanged": true,
-  "feature_hash_identical": true,
-  "prediction_hash_identical": true,
-  "first_run_seconds": 11.322,
-  "repeat_run_seconds": 11.565,
-  "prediction_sha256": "0d9fde57a284ef910f50456d2e95cce79f7a5eb22c7b64cad9aec7d40162035c",
-  "method": "Two full cached rebuilds. Runtime metadata changes; feature and prediction bytes must match.",
-  "timing_scope": "Core pipeline before presentation packaging; not browser rendering or hosted deployment.",
-  "final_prediction_hash_matches_prior_runs": true,
-  "final_core_pipeline_seconds": 11.312
+  "status": "PASS",
+  "protocol_version": 2,
+  "source_snapshot_unchanged": true,
+  "numerical_hashes": {
+    "data/processed/features.csv": "43ee6e4dc620be5f609d33c6b540ae0a5225e234415915126c62147e486b0954",
+    "reports/backtest_predictions.csv": "711cda2721c26f7d9b76f377dde5f0942b452d8e26c741067756a258d9509ee9",
+    "reports/revision_predictions.csv": "0e3e83420813e94a3db1aafc4af21160ce46206b053c10620ad3cb451416e372",
+    "reports/results.json": "ba5cffe71f41c4f2fcbd7067f71629e953bd8dcf6b07f149f2aa45a168b8466c",
+    "reports/monthly_eligibility.csv": "a437fadc4ec1b086e2e90309448a58a4ae7911b1c1deffdebdf6622522088a81",
+    "reports/winter_revision.json": "82c2747b4b6a0d930b4f179aab8c5f6988215466b485dd7a5f1ca0fbc3f0f862"
+  },
+  "two_complete_rebuilds_match": true,
+  "first_elapsed_seconds": 69.014,
+  "second_elapsed_seconds": 67.691,
+  "original_v1_prediction_max_absolute_difference_mw": 0.0,
+  "excluded_from_equality": [
+    "run timestamps",
+    "elapsed time",
+    "PDF internal creation metadata"
+  ],
+  "note": "All original and revised forecasts, features, results and monthly exclusions match. Same cached raw source; no network refresh."
 }

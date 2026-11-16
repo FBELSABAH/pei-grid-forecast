@@ -1,4 +1,4 @@
-"""Model choice on development data, then a locked quarterly walk-forward test."""
+"""Fixed development selection and original quarterly reconstruction; revisions labeled separately."""
 from __future__ import annotations
 import json
 from pathlib import Path
@@ -81,7 +81,7 @@ def fit_at(df,name,start_day):
 def aggregate(frame):
     result={name:metrics(frame.actual,frame[name],frame.peak_threshold_mw,
                         frame.lower if name=="forecast" else None,frame.upper if name=="forecast" else None)
-            for name in ["forecast"]+BASELINES}
+            for name in ["forecast"]+BASELINES+(["ridge_linear"] if "ridge_linear" in frame else [])}
     # Daily peak metrics only use days with every expected elapsed hour present.
     daily=[]
     for day,g in frame.groupby("day"):
@@ -105,7 +105,10 @@ def run_backtest(df,name,last_complete_day):
         if len(test)==0:continue
         model,radius,threshold,meta=fit_at(df,name,start.date())
         with threadpool_limits(limits=2):p=np.maximum(model.predict(test[columns(name)]),0)
+        linear,_,_,_=fit_at(df,"ridge_weather",start.date())
+        with threadpool_limits(limits=2):linear_p=np.maximum(linear.predict(test[columns("ridge_weather")]),0)
         scored=score_frame(test,p)
+        scored["ridge_linear"]=linear_p
         scored["lower"],scored["upper"]=np.maximum(p-radius,0),p+radius
         scored["peak_threshold_mw"]=threshold
         scored["fold"]=str(start.date())
@@ -119,7 +122,11 @@ def run_backtest(df,name,last_complete_day):
     report={"selected_model":name,"primary_2025":aggregate(primary),"extension_2026":aggregate(extension),"folds":folds,
             "primary_best_baseline":min(BASELINES,key=lambda n:metrics(primary.actual,primary[n])["mae_mw"])}
     best=report["primary_best_baseline"]
+    report["evaluation_status"]="Post-audit reanalysis with causal quality filtering; original v1 archived. New comparisons are retrospective."
+    report["linear_comparison_note"]="Ridge-regularized linear regression (alpha=100), original fixed candidate, same features/windows/hours; not ordinary unregularized least squares or coefficient inference."
     report["primary_paired_bootstrap"]=paired_block_bootstrap(primary,best)
+    report["bootstrap_sensitivity"]=[paired_block_bootstrap(primary,best,block_days=b) for b in [7,14,28]]
+    report["residual_diagnostics"]={"lag_correlation":{str(h):float((primary.forecast-primary.actual).corr((primary.forecast-primary.actual).reindex(primary.index-pd.Timedelta(hours=h)).set_axis(primary.index))) for h in [1,24,168]},"note":"Correlations align by elapsed calendar hour, not adjacent surviving rows. Errors are dependent; no independent-hour inference or naive coefficient p-values."}
     report["primary_mae_improvement_pct"]=100*(1-report["primary_2025"]["forecast"]["mae_mw"]/report["primary_2025"][best]["mae_mw"])
     breakdown=[]
     for month,g in scored.groupby(scored.day.str[:7]):

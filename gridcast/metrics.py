@@ -18,7 +18,8 @@ def metrics(actual, pred, threshold=None, lower=None, upper=None) -> dict:
                       peak_precision=tp/(tp+fp) if tp+fp else 0.0,peak_recall=tp/(tp+fn) if tp+fn else 0.0)
     if lower is not None:
         lo,hi = np.asarray(lower),np.asarray(upper)
-        result.update(interval_coverage_pct=float(100*np.mean((y>=lo)&(y<=hi))),interval_mean_width_mw=float(np.mean(hi-lo)))
+        result.update(interval_coverage_pct=float(100*np.mean((y>=lo)&(y<=hi))),interval_mean_width_mw=float(np.mean(hi-lo)),
+                      interval_score_90_mw=float(np.mean(hi-lo+20*np.maximum(lo-y,0)+20*np.maximum(y-hi,0))))
     return result
 
 def conformal_radius(residuals, coverage=.9) -> float:
@@ -65,14 +66,15 @@ def shift_load(values, energy_mwh: float, max_shift_mw: float, source_hours=None
             "moved_mwh":float(removed.sum()),"peak_before_mw":float(base.max()),"peak_after_mw":float(result.max()),
             "energy_difference_mwh":float(result.sum()-base.sum()),"per_hour_cap_mw":max_shift_mw}
 
-def paired_block_bootstrap(frame: pd.DataFrame, baseline: str, repetitions=1000) -> dict:
+def paired_block_bootstrap(frame: pd.DataFrame, baseline: str, repetitions=1000, block_days=7) -> dict:
     day=frame.groupby("day").apply(lambda g: float(np.mean(abs(g[baseline]-g.actual))-np.mean(abs(g.forecast-g.actual))),include_groups=False)
     calendar=day.reindex(pd.date_range(day.index.min(),day.index.max()).strftime("%Y-%m-%d")).to_numpy()
     rng=np.random.default_rng(2027);estimates=[]
     for _ in range(repetitions):
-        starts=rng.integers(0,max(1,len(calendar)-6),size=math.ceil(len(calendar)/7))
-        sample=np.concatenate([calendar[i:i+7] for i in starts])[:len(calendar)]
+        starts=rng.integers(0,max(1,len(calendar)-block_days+1),size=math.ceil(len(calendar)/block_days))
+        sample=np.concatenate([calendar[i:i+block_days] for i in starts])[:len(calendar)]
         estimates.append(float(np.nanmean(sample)))
     return {"baseline":baseline,"daily_mean_mae_gain_mw":float(np.nanmean(calendar)),
             "ci95_mw":[float(x) for x in np.quantile(estimates,[.025,.975])],
-            "method":"1000 seeded moving-block bootstrap replicates, 7 calendar-day blocks; positive gain favours model; approximate time-series interval"}
+            "block_days":block_days,"repetitions":repetitions,"estimand":"Unweighted mean of paired daily MAE gains in MW; not a confidence interval for percentage hourly MAE reduction",
+            "method":"Seeded moving calendar-block bootstrap; approximate, conditional on this dataset and fitted methods"}

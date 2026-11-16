@@ -20,7 +20,9 @@ def test_nonpositive_duplicate_and_malformed():
 
 def test_flatline_quarantine():
     s=source(periods=21);s["on-island-load"]=100
-    h,r,_=clean_load(s);assert r["rejected_rows"]==21;assert h.load_mw.empty
+    h,r,_=clean_load(s);assert r["rejected_rows"]==5
+    assert h.iloc[:4].load_mw.notna().all()
+    assert h.iloc[4:].load_mw.isna().all()
 
 def test_dst_ambiguous_removed():
     s=source("2025-11-02 00:00",16);_,r,rejected=clean_load(s)

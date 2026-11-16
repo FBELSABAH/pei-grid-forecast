@@ -1,0 +1,733 @@
+{
+  "candidate_days": 2135,
+  "days_with_history": 1958,
+  "excluded_origin_days": [
+    {
+      "day": "2021-03-21",
+      "reason": "stale_history"
+    },
+    {
+      "day": "2021-03-22",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2021-05-18",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2021-08-23",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2021-09-23",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2021-10-01",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2021-10-02",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2021-10-03",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2021-10-04",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2021-10-05",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2021-10-06",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2021-10-07",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2021-10-08",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2021-10-09",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2021-12-05",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2021-12-06",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2021-12-07",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2021-12-08",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2021-12-09",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2021-12-10",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2021-12-11",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2021-12-12",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-01-14",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-01-15",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-01-16",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-01-17",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-01-18",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-01-19",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-01-20",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-01-21",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-01-22",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-01-23",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-02-11",
+      "reason": "stale_history"
+    },
+    {
+      "day": "2022-02-12",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-02-13",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-02-14",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-02-15",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-02-16",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-02-17",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-02-18",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-02-19",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-02-20",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-02-21",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-02-22",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-02-23",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-02-24",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-02-25",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-02-26",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-02-27",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-02-28",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-03-01",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-03-02",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-03-03",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-03-04",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-03-05",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-03-06",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-03-31",
+      "reason": "stale_history"
+    },
+    {
+      "day": "2022-06-10",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-09-26",
+      "reason": "stale_history"
+    },
+    {
+      "day": "2022-09-27",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-09-28",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-09-29",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-09-30",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-10-01",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-10-02",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-10-03",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-10-04",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-10-05",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-10-06",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-10-07",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-11-11",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2022-11-20",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2023-06-04",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2023-06-05",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2023-06-06",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2023-06-07",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2023-06-08",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2023-06-09",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2023-06-10",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2023-06-11",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2023-08-20",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2023-09-03",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2023-09-15",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2023-11-29",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2023-11-30",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2023-12-01",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2023-12-02",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2023-12-03",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2023-12-04",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2023-12-05",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2023-12-06",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2023-12-07",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2023-12-08",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2023-12-09",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2023-12-10",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-04-07",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-04-08",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-04-09",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-04-10",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-04-11",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-04-12",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-04-13",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-04-14",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-04-15",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-04-16",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-05-04",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-05-05",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-05-06",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-05-07",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-05-08",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-05-09",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-05-10",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-05-11",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-05-12",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-05-13",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-05-14",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-05-15",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-05-16",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-05-17",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-05-18",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-05-19",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-07-24",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-07-25",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-11-26",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-11-27",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-11-28",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-11-29",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-11-30",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-12-01",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-12-02",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-12-03",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-12-04",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-12-05",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-12-06",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-12-07",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-12-08",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-12-09",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-12-10",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2024-12-11",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2025-02-07",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2025-02-08",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2025-02-09",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2025-02-10",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2025-02-11",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2025-02-12",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2025-02-13",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2025-02-20",
+      "reason": "stale_history"
+    },
+    {
+      "day": "2025-02-21",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-02-02",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-09-18",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-09-19",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-09-20",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-09-21",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-09-22",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-09-23",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-09-24",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-09-25",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-09-26",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-09-27",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-10-22",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-10-23",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-10-24",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-10-25",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-10-26",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-10-27",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-10-28",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-10-29",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-10-30",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-10-31",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-11-01",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-11-02",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-11-03",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-11-04",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-11-05",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-11-06",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-11-07",
+      "reason": "insufficient_history"
+    },
+    {
+      "day": "2026-11-08",
+      "reason": "insufficient_history"
+    }
+  ],
+  "candidate_hours_after_history_gate": 46991,
+  "eligible_hours": 43534,
+  "hours_missing_target_or_lag_or_weather": 3457,
+  "evaluation_scope": "All methods scored on identical eligible hours. Missing target, lag or weather rows are omitted, never interpolated.",
+  "validation": {
+    "eligible_hours": 3205,
+    "calendar_hours": 4367,
+    "coverage_pct": 73.39134417220059
+  },
+  "primary_test": {
+    "eligible_hours": 8400,
+    "calendar_hours": 8760,
+    "coverage_pct": 95.89041095890411
+  },
+  "extension_test": {
+    "eligible_hours": 6765,
+    "calendar_hours": 7584,
+    "coverage_pct": 89.20094936708861
+  }
+}

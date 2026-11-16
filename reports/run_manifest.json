@@ -1,7 +1,7 @@
 {
-  "completed_at_utc": "2026-11-13T12:11:57.913550+00:00",
-  "elapsed_seconds": 11.312,
-  "protocol_sha256": "85482d9d636294c9ca3ea877b74cb11241033ff5ea1ad3348245a9ea31f750f8",
+  "completed_at_utc": "2026-11-16T13:40:02.236657+00:00",
+  "elapsed_seconds": 67.691,
+  "protocol_sha256": "5f74a38a25cc62254a43c1a25e30783a7f0a5d67cc69482550a59745582f9a17",
   "source_manifest": {
     "electricity.csv": {
       "url": "https://energy.reinvented.net/archive/index.php",
@@ -23,7 +23,9 @@
     }
   },
   "feature_sha256": "43ee6e4dc620be5f609d33c6b540ae0a5225e234415915126c62147e486b0954",
-  "prediction_sha256": "0d9fde57a284ef910f50456d2e95cce79f7a5eb22c7b64cad9aec7d40162035c",
+  "prediction_sha256": "711cda2721c26f7d9b76f377dde5f0942b452d8e26c741067756a258d9509ee9",
+  "revision_prediction_sha256": "0e3e83420813e94a3db1aafc4af21160ce46206b053c10620ad3cb451416e372",
+  "evaluation_status": "Post-audit reanalysis; revised method is retrospective, no new untouched holdout",
   "primary_test": "2025 calendar year",
   "extension_through": "2026-11-12"
 }

@@ -1,23 +1,53 @@
 {
-  "version": 1,
-  "recorded_before_first_model_fit": "2026-11-13",
+  "version": 2,
   "target": "Arithmetic mean of accepted instantaneous PEI on-island load readings in each UTC hour, MW; not metered hourly energy",
   "timezone": "America/Halifax; historical wall-clock assumption, checked against current feed Unix timestamp",
   "issue_time_local": "18:00 on the preceding calendar date",
   "load_availability_rule": "Hourly interval must end at or before issue minus one hour; publication latency is an assumption, not a recorded vintage",
   "weather": "Open-Meteo GFS seamless temperature at fixed 48-hour lead; deliberately older than issue time, not observed future temperature",
-  "development_train": ["2021-01-01", "2024-01-01"],
-  "model_selection_validation": ["2024-01-01", "2024-07-01"],
-  "initial_interval_calibration": ["2024-07-01", "2025-01-01"],
-  "locked_primary_test": ["2025-01-01", "2026-01-01"],
+  "development_train": [
+    "2021-01-01",
+    "2024-01-01"
+  ],
+  "model_selection_validation": [
+    "2024-01-01",
+    "2024-07-01"
+  ],
+  "initial_interval_calibration": "Trailing 180 days ending at the first test issue minus one hour; exact boundaries in folds.csv",
   "extension_test": "2026-01-01 through last complete source day",
   "refit_schedule": "Quarterly; trailing three years before a separate trailing 180-day interval calibration window",
-  "candidates": ["ridge_weather", "boost_weather_15", "boost_weather_31", "boost_load_only"],
+  "candidates": [
+    "ridge_weather",
+    "boost_weather_15",
+    "boost_weather_31",
+    "boost_load_only"
+  ],
   "candidate_selection": "Lowest hourly MAE on January-June 2024 only; no hyperparameter changes based on test results",
-  "baselines": ["weekly_naive", "two_day_naive", "mean_2_and_7_day"],
+  "baselines": [
+    "weekly_naive",
+    "two_day_naive",
+    "mean_2_and_7_day"
+  ],
   "primary_metric": "MAE MW on identical eligible hours for every method",
   "interval": "90% nominal symmetric split-conformal residual interval; empirical coverage, no exchangeability guarantee for time series",
   "peak_definition": "Training-target 95th percentile in each quarterly fold; statistical high-load threshold, not grid capacity",
-  "data_exclusions": "Invalid/nonpositive readings, ambiguous/nonexistent DST timestamps, flat source runs spanning at least four hours, hours with fewer than three readings or less than 30 minutes span; no target interpolation",
-  "limitations": "No recorded electricity publication vintages; weather fixed-lead archive is not exact issue-run reconstruction; excluded poor-data periods; no utility endorsement or proven cost savings"
+  "data_exclusions": "Causal flatline flag only once elapsed repeated-reading duration reaches four hours; gaps over 30 minutes reset the run. Earlier readings never retroactively rejected. Other quality gates unchanged; no target interpolation.",
+  "limitations": "No recorded electricity publication vintages; weather fixed-lead archive is not exact issue-run reconstruction; excluded poor-data periods; no utility endorsement or proven cost savings",
+  "original_protocol": "reports/original_v1/protocol.json; original results preserved separately",
+  "revision_recorded": "2026-11-16, before revised-method fits; original 2025/26 scores were already inspected",
+  "evaluation_status": "Post-audit retrospective reanalysis, not a fresh untouched holdout. Original model selection remains January-June 2024.",
+  "linear_benchmark": "Original fixed Ridge(alpha=100), training-only scaling, same quarterly training windows, features and eligible target hours as original boosting",
+  "winter_revision": {
+    "status": "Exploratory retrospective comparison; no parameter search on 2025/26",
+    "point_model": "Original selected boosting configuration; refit monthly on trailing three years of labels available one hour before issue; no 180-day gap",
+    "calibration": "Signed out-of-sample errors from earlier monthly fits, trailing 365 days, minimum 500 rows; equal-tail 5th/95th empirical quantiles, conservative order statistics; no time-series coverage guarantee",
+    "warmup": "Monthly historical predictions from January 2023; scored comparison January 2025 onward",
+    "selection_rule": "One specified revision, report even if worse; do not replace original headline by best test score",
+    "future_validation": "Log new forecasts before outcomes; 2025/26 cannot be made untouched again"
+  },
+  "original_protocol_recorded_before_first_model_fit": "2026-11-13",
+  "original_primary_test": [
+    "2025-01-01",
+    "2026-01-01"
+  ]
 }

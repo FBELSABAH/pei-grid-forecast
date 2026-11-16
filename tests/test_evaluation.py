@@ -27,6 +27,7 @@ def test_artifact_metrics_and_fold_boundaries():
     p=pd.read_csv(ROOT/'reports/backtest_predictions.csv')
     primary=p[p.day<'2026-01-01'];got=metrics(primary.actual,primary.forecast)
     assert got['mae_mw']==pytest.approx(r['primary_2025']['forecast']['mae_mw'],abs=1e-7)
+    assert metrics(primary.actual,primary.ridge_linear)['mae_mw']==pytest.approx(r['primary_2025']['ridge_linear']['mae_mw'],abs=1e-7)
     assert not p.target_utc.duplicated().any()
     assert (p.lower<=p.forecast).all() and (p.forecast<=p.upper).all()
     for f in r['folds']:

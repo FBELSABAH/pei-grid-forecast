@@ -729,5 +729,261 @@
     "eligible_hours": 6765,
     "calendar_hours": 7584,
     "coverage_pct": 89.20094936708861
-  }
+  },
+  "monthly": [
+    {
+      "month": "2025-01",
+      "calendar_hours": 744,
+      "eligible_hours": 739,
+      "coverage_pct": 99.32795698924731,
+      "history_gate_excluded_hours": 0,
+      "missing_target": 2,
+      "missing_lag48": 2,
+      "missing_lag168": 1,
+      "missing_weather": 0
+    },
+    {
+      "month": "2025-02",
+      "calendar_hours": 672,
+      "eligible_hours": 377,
+      "coverage_pct": 56.101190476190474,
+      "history_gate_excluded_hours": 216,
+      "missing_target": 26,
+      "missing_lag48": 12,
+      "missing_lag168": 41,
+      "missing_weather": 0
+    },
+    {
+      "month": "2025-03",
+      "calendar_hours": 743,
+      "eligible_hours": 737,
+      "coverage_pct": 99.19246298788694,
+      "history_gate_excluded_hours": 0,
+      "missing_target": 2,
+      "missing_lag48": 2,
+      "missing_lag168": 2,
+      "missing_weather": 0
+    },
+    {
+      "month": "2025-04",
+      "calendar_hours": 720,
+      "eligible_hours": 720,
+      "coverage_pct": 100.0,
+      "history_gate_excluded_hours": 0,
+      "missing_target": 0,
+      "missing_lag48": 0,
+      "missing_lag168": 0,
+      "missing_weather": 0
+    },
+    {
+      "month": "2025-05",
+      "calendar_hours": 744,
+      "eligible_hours": 738,
+      "coverage_pct": 99.19354838709677,
+      "history_gate_excluded_hours": 0,
+      "missing_target": 3,
+      "missing_lag48": 3,
+      "missing_lag168": 0,
+      "missing_weather": 0
+    },
+    {
+      "month": "2025-06",
+      "calendar_hours": 720,
+      "eligible_hours": 717,
+      "coverage_pct": 99.58333333333333,
+      "history_gate_excluded_hours": 0,
+      "missing_target": 0,
+      "missing_lag48": 0,
+      "missing_lag168": 3,
+      "missing_weather": 0
+    },
+    {
+      "month": "2025-07",
+      "calendar_hours": 744,
+      "eligible_hours": 744,
+      "coverage_pct": 100.0,
+      "history_gate_excluded_hours": 0,
+      "missing_target": 0,
+      "missing_lag48": 0,
+      "missing_lag168": 0,
+      "missing_weather": 0
+    },
+    {
+      "month": "2025-08",
+      "calendar_hours": 744,
+      "eligible_hours": 744,
+      "coverage_pct": 100.0,
+      "history_gate_excluded_hours": 0,
+      "missing_target": 0,
+      "missing_lag48": 0,
+      "missing_lag168": 0,
+      "missing_weather": 0
+    },
+    {
+      "month": "2025-09",
+      "calendar_hours": 720,
+      "eligible_hours": 715,
+      "coverage_pct": 99.30555555555556,
+      "history_gate_excluded_hours": 0,
+      "missing_target": 3,
+      "missing_lag48": 2,
+      "missing_lag168": 0,
+      "missing_weather": 0
+    },
+    {
+      "month": "2025-10",
+      "calendar_hours": 744,
+      "eligible_hours": 716,
+      "coverage_pct": 96.23655913978494,
+      "history_gate_excluded_hours": 0,
+      "missing_target": 8,
+      "missing_lag48": 9,
+      "missing_lag168": 11,
+      "missing_weather": 0
+    },
+    {
+      "month": "2025-11",
+      "calendar_hours": 721,
+      "eligible_hours": 712,
+      "coverage_pct": 98.75173370319001,
+      "history_gate_excluded_hours": 0,
+      "missing_target": 3,
+      "missing_lag48": 3,
+      "missing_lag168": 3,
+      "missing_weather": 0
+    },
+    {
+      "month": "2025-12",
+      "calendar_hours": 744,
+      "eligible_hours": 741,
+      "coverage_pct": 99.59677419354838,
+      "history_gate_excluded_hours": 0,
+      "missing_target": 1,
+      "missing_lag48": 1,
+      "missing_lag168": 1,
+      "missing_weather": 0
+    },
+    {
+      "month": "2026-01",
+      "calendar_hours": 744,
+      "eligible_hours": 731,
+      "coverage_pct": 98.25268817204301,
+      "history_gate_excluded_hours": 0,
+      "missing_target": 5,
+      "missing_lag48": 4,
+      "missing_lag168": 4,
+      "missing_weather": 0
+    },
+    {
+      "month": "2026-02",
+      "calendar_hours": 672,
+      "eligible_hours": 629,
+      "coverage_pct": 93.60119047619048,
+      "history_gate_excluded_hours": 24,
+      "missing_target": 6,
+      "missing_lag48": 6,
+      "missing_lag168": 7,
+      "missing_weather": 0
+    },
+    {
+      "month": "2026-03",
+      "calendar_hours": 743,
+      "eligible_hours": 743,
+      "coverage_pct": 100.0,
+      "history_gate_excluded_hours": 0,
+      "missing_target": 0,
+      "missing_lag48": 0,
+      "missing_lag168": 0,
+      "missing_weather": 0
+    },
+    {
+      "month": "2026-04",
+      "calendar_hours": 720,
+      "eligible_hours": 714,
+      "coverage_pct": 99.16666666666667,
+      "history_gate_excluded_hours": 0,
+      "missing_target": 2,
+      "missing_lag48": 2,
+      "missing_lag168": 2,
+      "missing_weather": 0
+    },
+    {
+      "month": "2026-05",
+      "calendar_hours": 744,
+      "eligible_hours": 738,
+      "coverage_pct": 99.19354838709677,
+      "history_gate_excluded_hours": 0,
+      "missing_target": 2,
+      "missing_lag48": 2,
+      "missing_lag168": 2,
+      "missing_weather": 0
+    },
+    {
+      "month": "2026-06",
+      "calendar_hours": 720,
+      "eligible_hours": 720,
+      "coverage_pct": 100.0,
+      "history_gate_excluded_hours": 0,
+      "missing_target": 0,
+      "missing_lag48": 0,
+      "missing_lag168": 0,
+      "missing_weather": 0
+    },
+    {
+      "month": "2026-07",
+      "calendar_hours": 744,
+      "eligible_hours": 742,
+      "coverage_pct": 99.73118279569893,
+      "history_gate_excluded_hours": 0,
+      "missing_target": 1,
+      "missing_lag48": 1,
+      "missing_lag168": 0,
+      "missing_weather": 0
+    },
+    {
+      "month": "2026-08",
+      "calendar_hours": 744,
+      "eligible_hours": 743,
+      "coverage_pct": 99.86559139784946,
+      "history_gate_excluded_hours": 0,
+      "missing_target": 0,
+      "missing_lag48": 0,
+      "missing_lag168": 1,
+      "missing_weather": 0
+    },
+    {
+      "month": "2026-09",
+      "calendar_hours": 720,
+      "eligible_hours": 437,
+      "coverage_pct": 60.69444444444444,
+      "history_gate_excluded_hours": 240,
+      "missing_target": 31,
+      "missing_lag48": 1,
+      "missing_lag168": 11,
+      "missing_weather": 0
+    },
+    {
+      "month": "2026-10",
+      "calendar_hours": 744,
+      "eligible_hours": 485,
+      "coverage_pct": 65.18817204301075,
+      "history_gate_excluded_hours": 240,
+      "missing_target": 18,
+      "missing_lag48": 0,
+      "missing_lag168": 1,
+      "missing_weather": 0
+    },
+    {
+      "month": "2026-11",
+      "calendar_hours": 289,
+      "eligible_hours": 83,
+      "coverage_pct": 28.719723183391004,
+      "history_gate_excluded_hours": 193,
+      "missing_target": 1,
+      "missing_lag48": 1,
+      "missing_lag168": 11,
+      "missing_weather": 0
+    }
+  ],
+  "exclusion_count_note": "Missing-field counts overlap; do not add them. Calendar coverage includes blocked origins."
 }

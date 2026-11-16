@@ -24,11 +24,17 @@ def main():
     # Exclude current local day even if a downloaded partial hour is present.
     last_complete=hourly.index.max().tz_convert(TZ).date()-pd.Timedelta(days=1)
     predictions,results=run_backtest(dataset,selected,last_complete)
+    from gridcast.revision import run_revision
+    results['revision']=run_revision(dataset,selected,predictions)
+    write_json(ROOT/'reports/results.json',results)
+    pd.DataFrame(coverage['monthly']).to_csv(ROOT/'reports/monthly_eligibility.csv',index=False)
     latest=make_latest(dataset,hourly.load_mw,weather,selected)
     write_json(ROOT/"reports/run_manifest.json",{"completed_at_utc":datetime.now(timezone.utc).isoformat(),
         "elapsed_seconds":round(time.perf_counter()-began,3),"protocol_sha256":sha256(ROOT/"protocol.json"),
         "source_manifest":manifest,"feature_sha256":sha256(ROOT/"data/processed/features.csv"),
         "prediction_sha256":sha256(ROOT/"reports/backtest_predictions.csv"),
+        "revision_prediction_sha256":sha256(ROOT/"reports/revision_predictions.csv"),
+        "evaluation_status":"Post-audit reanalysis; revised method is retrospective, no new untouched holdout",
         "primary_test":"2025 calendar year","extension_through":str(last_complete)})
     from gridcast.publish import publish
     publish(predictions,latest,results,audit,coverage)

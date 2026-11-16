@@ -1,35 +1,36 @@
-# PEI Grid Forecast - decision brief
+# PEI Grid Forecast - professor review brief
 
-**Independent educational research | Faris Elsabah | Snapshot: 2026-11-13 07:44:00 Atlantic source wall time**
+**Faris Elsabah | Independent educational research | Revised 16 November 2026 | Frozen source through 2026-11-13 07:44:00 Atlantic wall time**
 
-## Decision and recommendation
+## Research question
+At 18:00 Atlantic, predict the following local day's hourly mean sampled PEI load using historical load, calendar information and archived fixed-48h GFS temperature forecasts. This is a forecasting/regression study, not causal inference or a utility operating tool.
 
-The model is a promising candidate for a small, prospectively logged forecasting pilot. It is not ready to control electricity equipment or support cost-saving claims. Start by having a utility or energy-software practitioner review the target definition, data latency and failure periods.
+## Fair benchmark comparison
+All methods use the same 8,400 eligible 2025 hours (95.89% of the year). Fixed candidate selection used January-June 2024. The original quarterly method remains the reference; the new monthly method is an exploratory retrospective revision after the original test results were inspected.
 
-## What was measured
+| Method | 2025 MAE (MW) | RMSE (MW) |
+|---|---:|---:|
+| Original quarterly gradient boosting | 11.98 | 15.89 |
+| Ridge linear regression, alpha=100 | 13.50 | 17.68 |
+| Mean of two-/seven-day profiles | 18.18 | 24.48 |
+| Two-day naive | 20.57 | 27.60 |
+| Weekly naive | 21.84 | 29.88 |
+| Monthly boosting revision (exploratory) | 11.49 | 15.37 |
 
-At 18:00 Atlantic, predict the following local day's hourly mean sampled on-island load. The electricity archive contains 508,848 observations from November 2012 onward. Feature development starts in 2021 to match the weather archive. Select among four candidates using January-June 2024 only; calibrate uncertainty on separate earlier observations; refit quarterly without tuning on the 2025-26 test.
+Ridge is a regularized linear benchmark, with training-only scaling and the same features, quarterly training windows and target hours as the original boosting method. It is not ordinary least squares or an inferential coefficient analysis. Original boosting has 11.2% lower MAE than ridge and 34.1% lower than the strongest simple baseline.
 
-## Main result: locked 2025 test
+## Winter investigation: improved, not solved
+The original model left the most recent 180 days out of point-model fitting to reserve a calibration window. The revision refits monthly using recent available labels; intervals use signed errors from earlier monthly forecasts, restricted to the prior 365 days. This jointly changes refit frequency, training recency and calibration, so the comparison cannot isolate their individual effects.
 
-- 8,400 identical scored hours across all methods: 95.9% of the calendar year.
-- Model MAE: **11.98 MW**, versus **18.18 MW** for the strongest simple baseline (mean of two- and seven-day profiles): **34.1% lower error**.
-- Weekly-naive MAE: 21.84 MW. RMSE: 15.89 MW. Weighted absolute percentage error: 5.81%. Bias: -5.26 MW (underprediction).
-- Nominal 90% intervals covered **86.9%**, below their nominal target.
-- High-load precision: 94.4%; recall: 68.0%. Thresholds use training-load percentiles, not utility capacity.
-- Separate 2026 extension: 6,765 hours, **11.81 MW MAE**; 89.2% calendar coverage.
+January-March 2025: MAE 16.85 -> 15.76 MW; nominal-90% interval coverage 68.1% -> 80.9%; mean width 43.51 -> 47.75 MW; interval score 101.88 -> 81.14 MW (lower is better). Annual revised coverage is 89.6% versus 86.9%, with narrower average width (48.65 versus 50.45 MW). Winter undercoverage remains; do not claim calibration is fixed. In the 2026 January-March extension, revised MAE improves slightly but RMSE and high-load recall worsen; all monthly results are retained.
 
-## Where to investigate
+## Corrections and uncertainty
+A raw-data flatline rule previously used a run's future end to reject earlier readings. It now flags a reading only after four hours of observed repetition, resets across gaps over 30 minutes, and never backdates rejection. An end-to-end raw-future-mutation test verifies input-prefix invariance. Correcting this defect did not change the original 2025/26 scored predictions in this snapshot. The first four hours of a freeze remain undetectable by this rule.
 
-Inspect underprediction, interval undercoverage, high-load misses and the largest-error days before a pilot. Compare prospective performance with the same baselines. Ask a practitioner whether the chosen issue time and province-wide signal match an actual planning decision. The load-shifting tool illustrates energy-conserving scenarios only; flexible capacity is assumed.
+February 2025 has only 377/672 hours (56.1%) eligible. Excluded periods are not imputed or represented by these scores. Error autocorrelation at lag 1 is 0.924; hours are not independent trials. Seven-, 14- and 28-day block bootstrap sensitivity is reported for unweighted daily MAE gains, not the hourly percentage improvement. No naive regression p-values are reported.
 
-## What the data cannot establish
-
-The archive is community-maintained, not settlement-meter data. Source wall time is assumed historically Atlantic; the current Unix timestamp supports this but does not prove every historical timestamp. We quarantine ambiguous DST observations, nonpositive values and four-hour flat runs; require three samples spanning 30 minutes per hour; never interpolate targets. Electricity release vintages are unavailable, so the assumed one-hour latency buffer cannot establish historical publication availability. Weather uses older fixed-48h GFS forecasts, not future observed weather or exact latest issue runs. No stakeholder adoption, actual savings, emissions reduction, operating-limit prediction or utility endorsement has been demonstrated.
+## Review request and next step
+Review the linear benchmark's specification, temporal validation and treatment of seasonal uncertainty/missingness. The revision is a candidate for future validation, not evidence from a newly untouched holdout. Record forecasts before outcomes arrive before making operational claims. Historical publication vintages and timezone are not fully verified; one-hour load latency is assumed; Charlottetown weather is a single-point proxy. No measured savings, deployment, endorsement or causal attribution is claimed.
 
 ## Sources and reproducibility
-
-- Peter Rukavina / Reinvented electricity archive: https://energy.reinvented.net/
-- Government of PEI indicator definitions: https://www.princeedwardisland.ca/en/feature/renewable-energy-indicators
-- Open-Meteo GFS forecast archive: https://open-meteo.com/en/docs/previous-runs-api (weather data CC BY 4.0; API terms apply separately).
-- See protocol.json, reports/results.json, reports/backtest_predictions.csv and reports/run_manifest.json for exact methods, all predictions and fingerprints. Raw source snapshots are not redistributed in Git; electricity archive reuse terms were not explicitly stated on the source landing page.
+Electricity: Peter Rukavina / Reinvented, https://energy.reinvented.net/ (provincial indicators). Weather: Open-Meteo GFS, https://open-meteo.com/en/docs/previous-runs-api (CC BY 4.0; API terms separate). Raw snapshots remain out of Git. Protocol v2, archived v1, every prediction, monthly eligibility, revision fold cutoffs and source/output hashes accompany the repository: https://github.com/FBELSABAH/pei-grid-forecast.

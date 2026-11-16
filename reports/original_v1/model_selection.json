@@ -1,0 +1,42 @@
+{
+  "selected": "boost_weather_31",
+  "train_rows": 21273,
+  "validation_rows": 3205,
+  "validation_start": "2024-01-01",
+  "validation_end_exclusive": "2024-07-01",
+  "candidates": [
+    {
+      "model": "ridge_weather",
+      "n": 3205,
+      "mae_mw": 14.672867073965067,
+      "rmse_mw": 19.106364366150036,
+      "wape_pct": 7.0583520161579685,
+      "bias_mw": -5.840115143221034
+    },
+    {
+      "model": "boost_weather_15",
+      "n": 3205,
+      "mae_mw": 13.077471201436795,
+      "rmse_mw": 17.341305777227344,
+      "wape_pct": 6.290890168608702,
+      "bias_mw": -5.867766911117385
+    },
+    {
+      "model": "boost_weather_31",
+      "n": 3205,
+      "mae_mw": 12.854594721092834,
+      "rmse_mw": 17.137488297525554,
+      "wape_pct": 6.183675903907749,
+      "bias_mw": -5.500656027336449
+    },
+    {
+      "model": "boost_load_only",
+      "n": 3205,
+      "mae_mw": 15.776808976436781,
+      "rmse_mw": 20.89934554558502,
+      "wape_pct": 7.58940095933679,
+      "bias_mw": -2.726305150499086
+    }
+  ],
+  "rule": "Minimum validation MAE only. Test predictions do not participate in selection."
+}

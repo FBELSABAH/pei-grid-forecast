@@ -1,16 +1,16 @@
 {
   "source_rows": 508848,
-  "rejected_rows": 1556,
+  "rejected_rows": 1274,
   "reasons": {
-    "flat_source_run_at_least_4h": 1496,
+    "flat_source_elapsed_at_least_4h": 1214,
     "invalid_or_ambiguous_local_timestamp": 59,
     "invalid_or_nonpositive_load": 1
   },
   "first_source_wall_time": "2012-11-13 12:29:02",
   "last_source_wall_time": "2026-11-13 07:44:00",
   "hourly_bins": 122708,
-  "accepted_hours": 118606,
-  "missing_or_rejected_hours": 4102,
+  "accepted_hours": 118675,
+  "missing_or_rejected_hours": 4033,
   "by_year": {
     "2012": {
       "hours": 1164,
@@ -18,23 +18,23 @@
     },
     "2013": {
       "hours": 8760,
-      "accepted_hours": 8353
+      "accepted_hours": 8370
     },
     "2014": {
       "hours": 8760,
-      "accepted_hours": 8614
+      "accepted_hours": 8644
     },
     "2015": {
       "hours": 8760,
-      "accepted_hours": 8696
+      "accepted_hours": 8703
     },
     "2016": {
       "hours": 8784,
-      "accepted_hours": 8392
+      "accepted_hours": 8403
     },
     "2017": {
       "hours": 8760,
-      "accepted_hours": 8631
+      "accepted_hours": 8635
     },
     "2018": {
       "hours": 8760,

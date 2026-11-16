@@ -84,4 +84,20 @@ def build_dataset(load: pd.Series, weather: pd.Series) -> tuple[pd.DataFrame, di
         potential = pd.date_range(start,end,freq="h",tz=TZ,inclusive="left")
         n = int(((dataset.day>=start)&(dataset.day<end)).sum())
         report[name] = {"eligible_hours":n,"calendar_hours":len(potential),"coverage_pct":100*n/len(potential) if len(potential) else 0}
+    # Calendar denominators include origins blocked entirely, not just rows surviving gates.
+    monthly=[]
+    for start in pd.date_range("2025-01-01", last_day, freq="MS"):
+        end=min(start+pd.DateOffset(months=1),pd.Timestamp(last_day))
+        if end<=start:continue
+        a,b=str(start.date()),str(end.date())
+        calendar=pd.date_range(a,b,freq="h",tz=TZ,inclusive="left").tz_convert("UTC")
+        rows=full.loc[full.index.intersection(calendar)]
+        n=int(dataset.index.isin(calendar).sum())
+        monthly.append({"month":a[:7],"calendar_hours":len(calendar),"eligible_hours":n,
+            "coverage_pct":100*n/len(calendar),"history_gate_excluded_hours":len(calendar)-len(rows),
+            "missing_target":int(rows.actual.isna().sum()),"missing_lag48":int(rows.lag48.isna().sum()),
+            "missing_lag168":int(rows.lag168.isna().sum()),
+            "missing_weather":int(rows.temperature_forecast_c.isna().sum())})
+    report["monthly"]=monthly
+    report["exclusion_count_note"]="Missing-field counts overlap; do not add them. Calendar coverage includes blocked origins."
     return dataset, report

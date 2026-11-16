@@ -74,11 +74,13 @@ def clean_load(frame: pd.DataFrame) -> tuple[pd.DataFrame, dict, pd.DataFrame]:
     reasons.loc[localized.duplicated(keep="first") & localized.notna()] = "duplicate_timestamp"
     usable = pd.DataFrame({"timestamp": localized, "load_mw": value})[reasons.eq("")]
     usable = usable.sort_values("timestamp")
-    # Repeated readings for hours can be a frozen scraper/source. Quarantine whole run.
-    runs = usable.load_mw.ne(usable.load_mw.shift()).cumsum()
-    duration = usable.groupby(runs).timestamp.transform("max") - usable.groupby(runs).timestamp.transform("min")
+    # Causal quality rule: at each observation, use only the elapsed prefix.
+    # A gap breaks evidence of continuous repetition. Never backdate a stale flag.
+    reset = usable.load_mw.ne(usable.load_mw.shift()) | usable.timestamp.diff().gt(pd.Timedelta(minutes=30))
+    runs = reset.cumsum()
+    duration = usable.timestamp - usable.groupby(runs).timestamp.transform("min")
     stale = duration >= pd.Timedelta(hours=4)
-    reasons.loc[usable.index[stale]] = "flat_source_run_at_least_4h"
+    reasons.loc[usable.index[stale]] = "flat_source_elapsed_at_least_4h"
     usable = usable.loc[~stale].set_index("timestamp")
     usable["sample_timestamp"] = usable.index
     hourly = usable.resample("h").agg(load_mw=("load_mw", "mean"), samples=("load_mw", "count"),
